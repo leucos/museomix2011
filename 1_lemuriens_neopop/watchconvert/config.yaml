@@ -1,0 +1,21 @@
+paths:
+  upload_directory: '/home/user/photos/upload/'
+  chair_directories: '/home/user/photos/chaises/'
+  image_destination: '/home/user/museomix2011/1_lemuriens_neopop/webglue/public/images/'
+
+colors:
+  excluded_colors:
+    - '#979797'
+    - '#959998'
+    - '#797979'
+    - '#B6B8B7'
+    - '#8D8D8F'
+    - '#A0A0A0'
+    - '#AFAFAF'
+    - '#89817F'
+    - '#783345'
+    - '#9D1B49'
+    - '#94153E'
+
+debug: true
+fuzz: 2300

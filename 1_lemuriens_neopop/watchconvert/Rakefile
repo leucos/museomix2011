@@ -1,0 +1,10 @@
+require 'redis'
+
+task :test do
+  r = Redis.new
+  r.lpush('lemuriens.id_auth', 123)
+  r.lpush('lemuriens.id_chair', '01')
+
+  cp '/home/user/photos/tests_incruste/DSC_0039.JPG', '/home/user/photos/upload/'
+  sh "ruby watchconvert.rb"
+end

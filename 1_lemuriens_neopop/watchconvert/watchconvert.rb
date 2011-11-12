@@ -15,13 +15,19 @@ redis = Redis.new
 
 # Loop getting posted images 
 Dir.entries(upload_directory). do |file|
+  puts "Found new image #{file}"
+  
   # get oldest redis entry for id_auth and id_chair
   id_auth = redis.lpop("lemuriens.id_auth")
   id_chair = redis.lpop("lemuriens.id_chair")
-  
+ 
+  puts "Found id_auth/id_chair #{id_auth}/#{id_chair}"
+ 
   # then generate image
   generate_final(file, id_auth, id_chair)
-  file.delete
+
+  puts "Removing #{file}"
+#  file.delete
 end
 
 def generate_final(person_image, id_auth, id_chair)
@@ -34,5 +40,5 @@ def generate_final(person_image, id_auth, id_chair)
     image = image.transparent(c)
   end
   
-  image.write("#{}/#{id_auth}.jpg") 
+  image.write("#{image_destination}/#{id_auth}.jpg") 
 }

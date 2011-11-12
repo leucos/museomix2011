@@ -27,9 +27,11 @@ end
 class AppController < MainController
   def start
     @title = "Start controller"
+    exec('ssh pvincent@192.168.100.179 "DISPLAY=:0.0 python /home/pvincent/Programmation/PyMT/museotouch2/app/main.py -a"') if fork.nil?
   end
   
-  def store
+  def push
+    
   end
 end
 

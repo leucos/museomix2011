@@ -1,7 +1,7 @@
 paths:
   upload_directory: '/home/user/photos/upload/'
   chair_directories: '/home/user/photos/chaises/'
-  image_destination: '/home/user/museomix2011/1_lemuriens_neopop/webglue/public/images/'
+  image_destination: '/home/user/publish/museomix/'
 
 colors:
   excluded_colors:

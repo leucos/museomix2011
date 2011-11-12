@@ -9,9 +9,6 @@ require 'pp'
 
 $config = YAML.load_file("config.yaml")
 
-pp $config
-
-
 $config['fuzz'] ||= 2300
 
 redis = Redis.new

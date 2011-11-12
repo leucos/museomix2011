@@ -14,8 +14,10 @@ fuzz = ARGV[0] || 8000
 redis = Redis.new
 
 # Loop getting posted images 
-Dir.entries(upload_directory). do |file|
+Dir.entries(upload_directory) do |file|
   puts "Found new image #{file}"
+  
+  next if file == '.' or file == '..'
   
   # get oldest redis entry for id_auth and id_chair
   id_auth = redis.lpop("lemuriens.id_auth")
@@ -41,4 +43,4 @@ def generate_final(person_image, id_auth, id_chair)
   end
   
   image.write("#{image_destination}/#{id_auth}.jpg") 
-}
+end

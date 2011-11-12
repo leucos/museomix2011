@@ -14,7 +14,7 @@ fuzz = ARGV[0] || 8000
 redis = Redis.new
 
 # Loop getting posted images 
-Dir.entries(upload_directory) do |file|
+Dir.entries(upload_directory).each do |file|
   puts "Found new image #{file}"
   
   next if file == '.' or file == '..'

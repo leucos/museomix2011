@@ -13,15 +13,6 @@ class MainController < Controller
   def index
     @title = 'Welcome to Ramaze!'
   end
-
-  # the string returned at the end of the function is used as the html body
-  # if there is no template for the action. if there is a template, the string
-  # is silently ignored
-  def notemplate
-    @title = 'Welcome to Ramaze!'
-    
-    return 'There is no \'notemplate.xhtml\' associated with this action.'
-  end
 end
 
 class AppController < MainController
@@ -30,15 +21,10 @@ class AppController < MainController
     exec('ssh pvincent@192.168.100.179 "DISPLAY=:0.0 python /home/pvincent/Programmation/PyMT/museotouch2/app/main.py -a"') if fork.nil?
   end
   
-  def push
-    
+  def push(id_auth, id_chair)
+    r = Redis.new
+    r.rpush('lemuriens.id_auth', id_auth)
+    r.rpush('lemuriens.id_chair', id_chair)
   end
 end
 
-class Photo < MainController
-  def generate
-  end
-  
-  def view
-  end
-end

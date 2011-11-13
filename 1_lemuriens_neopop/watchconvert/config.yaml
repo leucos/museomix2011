@@ -1,7 +1,7 @@
 paths:
   upload_directory: '/home/user/photos/upload/'
   chair_directories: '/home/user/photos/chaises/'
-  image_destination: '/home/user/publish/museomix/'
+  image_destination: '/home/user/publish/museomix/images/'
 
 colors:
   excluded_colors:

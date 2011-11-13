@@ -9,6 +9,8 @@
 #
 # this will force the controller to be mounted on: /otherurl.
 class MainController < Controller
+  @@museotouch_command = 'ssh pvincent@192.168.100.181 "DISPLAY=:0.0 python /home/pvincent/Programmation/PyMT/museotouch2/app/main.py -a"'
+
   # the index action is called automatically when no other action is specified
   def index
     @title = 'Welcome to Ramaze!'
@@ -18,7 +20,7 @@ end
 class AppController < MainController
   def start
     @title = "Start controller"
-    exec('ssh pvincent@192.168.100.179 "DISPLAY=:0.0 python /home/pvincent/Programmation/PyMT/museotouch2/app/main.py -a"') if fork.nil?
+    exec(@@museotouch_command) if fork.nil?
   end
   
   def push(id_auth, id_chair)

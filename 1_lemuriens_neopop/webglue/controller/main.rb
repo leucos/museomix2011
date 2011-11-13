@@ -9,7 +9,8 @@
 #
 # this will force the controller to be mounted on: /otherurl.
 class MainController < Controller
-  @@museotouch_command = 'ssh pvincent@192.168.100.181 "DISPLAY=:0.0 python /home/pvincent/Programmation/PyMT/museotouch2/app/main.py -a"'
+  #@@museotouch_command = 'ssh pvincent@192.168.100.181 "DISPLAY=:0.0 python /home/pvincent/Programmation/PyMT/museotouch2/app/main.py -a"'
+  @@museotouch_command = 'ssh user@192.168.101.153 "DISPLAY=:0.0 /home/user/app/museotouch-remote.sh"'
 
   # the index action is called automatically when no other action is specified
   def index
